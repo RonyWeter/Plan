@@ -1,5 +1,5 @@
 .mainContaine {
-    position: relative;
+    position: fixed;
     text-align: -webkit-center;
     justify-content: center;
     background-image: url('../../../assets/images/background.jpg');
