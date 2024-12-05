@@ -1,0 +1,110 @@
+<div class="container mainContaine" *ngIf="!update">
+    <div class="row" style="height: max-content; width: 100%; margin-top: 5vh;">
+        <div class="col-lg-12" style="text-align: end;">
+            <button class="saveB" (click)="logout()" style="background-color: white;color: black;">Cancel</button>&nbsp;
+            <button class="saveB" (click)="edit()"
+                style="background-color: var(--primary-color);color: white;">Add</button>
+        </div>
+    </div>
+    <div class="row" *ngIf="dataSource.length != 0"
+        style="height: max-content;width: 100%;margin-top: 5vh;justify-content: center;">
+        <div class="col-lg-12 mb-3" class="accordion" *ngFor="let item of dataSource">
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title style="font-size: 2.5vh;font-weight: 600;"> {{ getDayOfWeek(item.date) }}
+                        </mat-panel-title>
+                        <mat-panel-description
+                            style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 1.8vh;">
+                                {{item.date}}
+                            </span>
+                            <span>
+                                <i class="fas fa-edit" style="color: rgb(150, 250, 1); cursor: pointer;"
+                                    (click)="edit(item)">
+                                </i>
+                                &nbsp;
+                                <i class="fa fa-trash" style="color: red; cursor: pointer;" (click)="delete(item.id)">
+                                </i>
+                            </span>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <p *ngIf="item.allDayPlan != ''" style="font-size: 2vh;font-weight: 500;">{{item.allDayPlan}} </p>
+                    <ul *ngIf="item.allDayPlan == ''">
+                        <li>Morning : {{item.morningPlan}}</li>
+                        <li>AfterNoon : {{item.afterNoonPlan}}</li>
+                        <li>At Night : {{item.atNightPlan}}</li>
+                    </ul>
+                </mat-expansion-panel>
+            </mat-accordion><br>
+        </div>
+    </div>
+    <div class="row animationWord" *ngIf="dataSource.length == 0"
+        style="height: max-content;width: 100%;margin-top: 25vh;justify-content: center;">
+        <p style="font-size: 4.5vh;font-weight: 800;">
+            <span style="color: white;">No Pla</span> <span style="color: red;">n Inserted</span>
+        </p>
+    </div>
+    <div class="row animationIcon" *ngIf="dataSource.length == 0" style="height: max-content;width: 100%;margin-top: 4vh;justify-content: center;">
+        <i class="fas fa-snowman" style="color: white; font-size: 30vh;"></i>
+         <!-- <img src="../../../assets/images/santa_Image.jpeg" style="background-color: none;"> -->
+    </div>
+</div>
+
+<div class="container mainContaine" style="display: flex;align-items: center;" *ngIf="update">
+    <div style="background-color: white;width: 70%;height: auto;">
+        <div class="row" style="width: 100%; margin-top: 5vh;">
+            <div class="col-lg-12">
+                <form [formGroup]="ChristmasForm" style="width: 100%;">
+                    <mat-form-field class="fields" style="width: 100%;">
+                        <mat-label>Choose a date</mat-label>
+                        <input readonly matInput [matDatepicker]="picker" formControlName="selectedDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-lg-12">
+                <form [formGroup]="ChristmasForm" style="width: 100%;">
+                    <mat-form-field class="fields" style="width: 100%;">
+                        <mat-label>All Day Plan</mat-label>
+                        <input type="text" (input)="changeInput()" matInput formControlName="allDayPlan" />
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-lg-12">
+                <form [formGroup]="ChristmasForm" style="width: 100%;">
+                    <mat-form-field class="fields" style="width: 100%;">
+                        <mat-label>Morning Plan</mat-label>
+                        <input type="text" matInput formControlName="morningPlan" />
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-lg-12">
+                <form [formGroup]="ChristmasForm" style="width: 100%;">
+                    <mat-form-field class="fields" style="width: 100%;">
+                        <mat-label>AfterNoon Plan</mat-label>
+                        <input type="text" matInput formControlName="afterNoonPlan" />
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-lg-12">
+                <form [formGroup]="ChristmasForm" style="width: 100%;">
+                    <mat-form-field class="fields" style="width: 100%;">
+                        <mat-label>At Night Plan</mat-label>
+                        <input type="text" matInput formControlName="atNightPlan" />
+                    </mat-form-field>
+                </form>
+            </div>
+            <div class="col-lg-12">
+                <button class="updateB" style="background-color: lightgray;color: black;"
+                    (click)="cancel()">Cancel</button>
+                &nbsp;&nbsp;
+                <button class="updateB" style="background-color: var(--primary-color);color: white;"
+                    (click)="save()">Save</button>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

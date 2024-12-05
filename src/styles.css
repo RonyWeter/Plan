@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+:root {
+    --primary-color: #4BCD3E;
+}
+
+html,
+body {
+    height: 100%;
+    /* background: linear-gradient(180deg, #06668A 0%, #090825 100%); */
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    scrollbar-width: none;
+   
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    height: 100%;
+    /* background: linear-gradient(180deg, #06668A 0%, #090825 100%); */
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    scrollbar-width: none;
+    /* direction: rtl */
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    min-height: 90%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: scroll;
+}
+
+.mat-datepicker-content {
+    width: 100% !important; /* Allow flexibility */
+  }
+  
+.mat-expansion-panel-body{
+    text-align: start;
+    margin-left: 7.5%;
+}
+
+.mdc-snackbar__surface {
+  text-align: center !important;
+  font-size: 2vh !important;
+}
+  
+.sk-three-strings[_ngcontent-ng-c1591448945] > div[_ngcontent-ng-c1591448945]:nth-child(1){
+    color: red !important;
+}
+
+.sk-three-strings[_ngcontent-ng-c1591448945] > div[_ngcontent-ng-c1591448945]:nth-child(2){
+    color: #06668A !important;
+}
