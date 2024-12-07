@@ -38,6 +38,11 @@
         width: 100%;
         text-align: center;
     }
+    .section{
+        background-color: white;
+        width: 100%;
+        height: auto;
+    }
 }
 
 /* website */
@@ -61,6 +66,11 @@
     .accordion{
         width: 70%;
         text-align: center;
+    }
+    .section{
+        background-color: white;
+        width: 70%;
+        height: auto;
     }
 }
 
